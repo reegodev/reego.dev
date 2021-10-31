@@ -25,7 +25,7 @@ export let posts
         {#each socialLinks as link}
         <li>
           <a href="{link.url}" target="_blank" rel="noopener noreferrer nofollow" class="social-link font-semibold hover:underline inline-block p-1 pl-0">
-            <img src="{link.icon}" alt="{link.name}" height="24px" width="auto" class="h-6 w-auto inline-block mr-4" />{link.label}
+            <img src="{link.icon}" alt="{link.name}" height="24" width="24" class="h-6 w-auto inline-block mr-4" />{link.label}
           </a>
         </li>
         {/each}

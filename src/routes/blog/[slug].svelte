@@ -25,11 +25,11 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
         <h1 class="text-xl md:text-2xl lg:text-5xl lg:pl-0 font-bold"><span class="text-primary">\</span> { post.title }</h1>
         <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg mt-4">
           <div>
-            <img class="inline-block h-4 w-auto mr-2" src="/calendar.svg" alt="Calendar icon" />
+            <img class="inline-block h-4 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
             <time class="align-middle">{ post.date }</time>
           </div>
           <div>
-            <img class="inline-block h-4 w-auto mr-2"  src="/clock.svg" alt="Stopwatch icon" />
+            <img class="inline-block h-4 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
             <span class="align-middle">{ post.readingTime }</span>
           </div>
         </div>

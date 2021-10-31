@@ -6,6 +6,7 @@ This is the repository for my personal website [reego.dev](https://reego.dev)
 - GitHub discussions as the blog engine. [What?](https://reego.dev/blog/using-github-discussions-as-your-blog-engine)
 - Svelte + SvelteKit
 - Cloudflare Workers
+- Cloudinary to generate dynamic social images for posts
 
 ## License
 

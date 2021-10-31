@@ -22,11 +22,11 @@ const url = '/blog/' + post.slug
     <template #footer>
       <div class="flex justify-between text-sm pt-4">
         <div>
-          <img alt="Calendar icon" class="inline-block h-4 w-auto mr-2" src="/calendar.svg"/>
+          <img alt="Calendar icon" width="16" height="16" class="inline-block h-4 w-auto mr-2" src="/calendar.svg"/>
           <time class="align-middle">{ post.date }</time>
         </div>
         <div>
-          <img alt="Stopwatch icon" class="inline-block h-4 w-auto mr-2"  src="/clock.svg"/>
+          <img alt="Stopwatch icon" width="16" height="16" class="inline-block h-4 w-auto mr-2"  src="/clock.svg"/>
           <span class="align-middle">{ post.readingTime }</span>
         </div>
       </div>

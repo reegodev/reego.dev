@@ -29,7 +29,7 @@ const isBlog = $page.path.startsWith('/blog')
       {#each socialLinks as link}
       <li class="inline-block">
         <a href="{link.url}" target="_blank" rel="noopener noreferrer nofollow" class="font-semibold hover:underline inline-block p-1">
-          <img src="{link.icon}" alt="{link.name}" height="24px" width="auto" class="h-5 w-auto inline-block" />
+          <img src="{link.icon}" alt="{link.name}" height="24" width="24" class="h-5 w-auto inline-block" />
           <span class="sr-only">{ link.name }</span>
         </a>
       </li>
