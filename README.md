@@ -10,4 +10,3 @@ This is the repository for my personal website [reego.dev](https://reego.dev)
 ## License
 
 MIT
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
