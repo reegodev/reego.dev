@@ -36,7 +36,7 @@ jobs:
         run: pnpm build
         env:
           VITE_GITHUB_API_URL: "https://api.github.com/graphql"
-          VITE_GITHUB_API_KEY: ${{ secrets.GITHUB_TOKEN }}
+          VITE_GITHUB_API_KEY: ${{ secrets.PERSONAL_WEBSITE_TOKEN }}
           VITE_GITHUB_REPO_OWNER: "reegodev"
           VITE_GITHUB_REPO_NAME: "reego.dev"
 
