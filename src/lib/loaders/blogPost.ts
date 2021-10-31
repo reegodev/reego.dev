@@ -11,13 +11,6 @@ export const load = async ({ page }: LoadInput): Promise<LoadOutput> => {
     },
   ).toPromise()
 
-  if (!data || !data.search || !data.search.edges || !data.search.edges[0] || data.search.edges[0].node.category.id !== import.meta.env.VITE_PUBLISHED_CATEGORY_ID) {
-    return {
-      status: 404,
-      error: 'Not found',
-    }
-  }
-
   if (!data || !data.search || !data.search.edges || !data.search.edges[0]) {
     return {
       status: 404,

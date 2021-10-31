@@ -7,7 +7,6 @@ export const load = async (): Promise<LoadOutput> => {
   const { data } = await client.query(
     LATEST_POSTS,
     {
-      categoryId: import.meta.env.VITE_PUBLISHED_CATEGORY_ID,
       owner: import.meta.env.VITE_GITHUB_REPO_OWNER,
       repo: import.meta.env.VITE_GITHUB_REPO_NAME,
       limit: 12,

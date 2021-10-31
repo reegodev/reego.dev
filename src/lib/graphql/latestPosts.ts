@@ -1,7 +1,7 @@
 import { gql } from '@urql/core'
 
 export default gql`
-  query ($owner: String!, $categoryId: ID!, $repo: String!, $limit: Int!) {
+  query ($owner: String!, $repo: String!, $limit: Int!) {
     repository(owner: $owner, name: $repo) {
       discussions(
         first: $limit,
@@ -9,7 +9,6 @@ export default gql`
           field: UPDATED_AT,
           direction: DESC
         }
-        categoryId: $categoryId,
       ) {
         pageInfo {
           startCursor

@@ -12,11 +12,6 @@ export default gql`
             updatedAt
             url
 
-            category {
-              id
-              name
-            }
-
             labels(first: 10) {
               edges {
                 node {
