@@ -7,12 +7,15 @@ import '../../assets/post.css'
 import type { Post } from '$lib/types';
 import Seo from '../../components/Seo.svelte'
 import Tag from '../../components/Tag.svelte'
+import { getImageUrl } from '$lib/socialImage'
 
 export let post: Post
+
+const imageUrl = getImageUrl(post.title, post.description, post.date, post.readingTime)
 </script>
 
 <svelte:head>
-  <Seo title={post.title} description={post.description} />
+  <Seo title="{post.title}" description="{post.description}" image="{imageUrl}"  />
 </svelte:head>
 
 <template>
@@ -23,7 +26,7 @@ export let post: Post
         <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg mt-4">
           <div>
             <img class="inline-block h-4 w-auto mr-2" src="/calendar.svg" alt="Calendar icon" />
-            <time class="align-middle">{ post.date.toLocaleDateString() }</time>
+            <time class="align-middle">{ post.date }</time>
           </div>
           <div>
             <img class="inline-block h-4 w-auto mr-2"  src="/clock.svg" alt="Stopwatch icon" />

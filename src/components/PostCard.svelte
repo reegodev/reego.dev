@@ -23,7 +23,7 @@ const url = '/blog/' + post.slug
       <div class="flex justify-between text-sm pt-4">
         <div>
           <img alt="Calendar icon" class="inline-block h-4 w-auto mr-2" src="/calendar.svg"/>
-          <time class="align-middle">{ post.date.toLocaleDateString() }</time>
+          <time class="align-middle">{ post.date }</time>
         </div>
         <div>
           <img alt="Stopwatch icon" class="inline-block h-4 w-auto mr-2"  src="/clock.svg"/>

@@ -1,6 +1,5 @@
 import markdownIt from 'markdown-it'
 import hljs from 'highlight.js'
-import hljsDefineGraphQL from 'highlightjs-graphql'
 import matter from 'gray-matter'
 import { readingTime } from 'reading-time-estimator'
 import type { Post, HSL, Tag } from '$lib/types'
@@ -135,13 +134,16 @@ export async function mapPost({ node }: { node: any }): Promise<Post> {
   })
   const content = md.render(markdownContent)
 
+  const date = new Date(node.createdAt)
+  const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`
+
   return {
     id: node.id,
     slug: frontmatter && frontmatter.slug,
     title: node && node.title,
     description: frontmatter && frontmatter.description,
     content,
-    date: new Date(node && node.createdAt),
+    date: formattedDate,
     readingTime: readingTime(content, 250).text,
     tags: node && node.labels && node.labels.edges.map(({ node }: { node: any }): Tag => {
       return {
