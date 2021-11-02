@@ -57,18 +57,18 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
     </article>
   </div>
   <script>
-      const post = {
+      const shareData = {
         title: document.querySelector('.post-title').textContent,
         text: document.querySelector('.post-description').textContent,
         url: window.location.href,
       }
-      if (navigator.canShare && navigator.canShare(post)) {
+      if (navigator.canShare && navigator.canShare(shareData)) {
         const btn = document.querySelector('.share-btn')
         if (btn) {
           btn.classList.remove('hidden')
           btn.classList.add('inline-block')
           btn.addEventListener('click', function() {
-            navigator.share(post)
+            navigator.share(shareData)
               .then(() => console.log('Share was successful.'))
               .catch((error) => console.log('Sharing failed', error));
           })
