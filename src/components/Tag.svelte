@@ -7,9 +7,9 @@ const cssVars = Object.keys(tag.color)
   .join('; ')
 
 </script>
-<template>
-  <span class="tag px-2 py-1 border border-current rounded text-sm leading-none" style="{cssVars}">{ tag.name }</span>
-</template>
+
+<span class="tag px-2 py-1 border border-current rounded text-sm leading-none" style="{cssVars}">{ tag.name }</span>
+
 <style scoped>
 /* Logic shamelessly borrowed from Github */
 .tag {

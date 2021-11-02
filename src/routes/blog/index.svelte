@@ -15,7 +15,7 @@ export let posts: Post[]
 </svelte:head>
 
 <div class="container mx-auto px-4 md:px-8">
-	<h1 class="text-white text-5xl font-bold mt-12"><span class="text-primary">\</span> Blog</h1>
+	<h1 class="text-white text-5xl font-bold mt-12">Blog</h1>
 	<PostGrid posts="{posts}" />
 </div>
 

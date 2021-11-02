@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-import '../../assets/post.css'
 import type { Post } from '$lib/types';
 import Seo from '../../components/Seo.svelte'
 import Tag from '../../components/Tag.svelte'
@@ -18,36 +17,214 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
   <Seo title="{post.title}" description="{post.description}" image="{imageUrl}"  />
 </svelte:head>
 
-<template>
-  <div class="container mx-auto py-4 px-4">
-    <div class="relative md:p-12">
-      <article>
-        <h1 class="text-xl md:text-2xl lg:text-5xl lg:pl-0 font-bold"><span class="text-primary">\</span> { post.title }</h1>
-        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg mt-4">
-          <div>
-            <img class="inline-block h-4 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
-            <time class="align-middle">{ post.date }</time>
-          </div>
-          <div>
-            <img class="inline-block h-4 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
-            <span class="align-middle">{ post.readingTime }</span>
-          </div>
+<div class="container mx-auto py-4 px-4">
+  <div class="relative md:p-12">
+    <article>
+      <h1 class="text-xl md:text-2xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
+      <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg mt-5">
+        <div>
+          <img class="inline-block h-5 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
+          <time class="align-middle">{ post.date }</time>
         </div>
-        <div class="flex space-x-2 mt-4 items-center">
-        {#each post.tags as tag}
-          <Tag v-for="tag of post.tags" tag="{ tag }" />
-        {/each}
+        <div>
+          <img class="inline-block h-5 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
+          <span class="align-middle">{ post.readingTime }</span>
         </div>
-        <div class="post-content mt-12 text-lg">
-          {@html post.content}
-        </div>
-        <div class="mt-12 text-lg">
-          I hope this post was an interesting read!<br>
-          If you have questions or want to give feedbacks, I encourage you to write a comment on the <a class="underline" href="{post.githubUrl}" target="_blank" rel="noopener noreferrer nofollow">GitHub discussion of this post</a> ( I'm still working on directly integrating comments on the page, please bear with me )<br>
-          <br>
-          Cheers!
-        </div>
-      </article>
-    </div>
+      </div>
+      <div class="flex space-x-2 mt-5 items-center">
+      {#each post.tags as tag}
+        <Tag v-for="tag of post.tags" tag="{ tag }" />
+      {/each}
+      </div>
+      <div class="post-content mt-12 text-lg">
+        {@html post.content}
+      </div>
+      <div class="mt-12 text-lg">
+        I hope this post was an interesting read!<br>
+        If you have questions or want to give feedbacks, I encourage you to write a comment on the <a class="underline" href="{post.githubUrl}" target="_blank" rel="noopener noreferrer nofollow">GitHub discussion of this post</a> ( I'm still working on directly integrating comments on the page, please bear with me )<br>
+        <br>
+        Cheers!
+      </div>
+    </article>
   </div>
-</template>
+</div>
+
+<style>
+@screen xl {
+  .container {
+    max-width: 1120px;
+  }
+}
+
+.post-content :global(h2) {
+  @apply font-bold text-xl md:text-2xl mt-20 mb-4;
+}
+
+.post-content :global(pre) {
+  @apply my-4 md:my-8;
+}
+
+.post-content :global(pre code) {
+  @apply font-mono block p-4 text-white leading-relaxed text-base overflow-x-auto;
+  background: hsl(220, 13%, 18%);
+}
+
+.post-content :global(p:not(:last-child)) {
+  @apply mb-4;
+}
+
+.post-content :global(p code) {
+  @apply font-mono inline-block align-middle text-primary px-2 py-1 leading-none text-xs md:text-xs mx-1;
+  background: hsl(220, 13%, 18%);
+}
+
+.post-content :global(a) {
+  word-break: break-all;
+  text-decoration: underline;
+}
+
+@screen md {
+  .post-content :global(a) {
+    word-break: initial;
+  }
+}
+
+:global(.post-content blockquote) {
+  @apply p-4 my-8 pl-14 border border-gray-600 bg-gray-800 relative;
+}
+
+:global(.post-content blockquote:before) {
+  content: 'i';
+  transform: translateY(-50%);
+  font-family: cursive;
+  @apply absolute top-1/2 left-4 text-primary font-bold w-6 h-6 rounded-full flex items-center justify-center;
+}
+
+.post-content :global(img) {
+  @apply my-12 mx-auto;
+}
+
+:global(.post-content ul) {
+  padding-left: 1em;
+  margin: 1em 0 2em;
+  @apply space-y-2 list-disc;
+}
+
+:global(.post-content ol) {
+  padding-left: 1em;
+  margin: 1em 0 2em;
+  @apply space-y-2 list-decimal;
+}
+
+:global(pre code.hljs) {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+
+:global(code.hljs) {
+  padding: 3px 5px
+}
+
+/*!
+Theme: GitHub Dark Dimmed
+Description: Dark dimmed theme as seen on github.com
+Author: github.com
+Maintainer: @Hirse
+Updated: 2021-05-15
+
+Colors taken from GitHub's CSS
+*/
+:global(.hljs) {
+  color: #adbac7;
+  background: #22272e
+}
+
+
+:global(.hljs-doctag),
+:global(.hljs-keyword),
+:global(.hljs-meta .hljs-keyword),
+:global(.hljs-template-tag),
+:global(.hljs-template-variable),
+:global(.hljs-type),
+:global(.hljs-variable.language_) {
+  color: #f47067
+}
+
+:global(.hljs-title),
+:global(.hljs-title.class_),
+:global(.hljs-title.class_.inherited__),
+:global(.hljs-title.function_) {
+  color: #dcbdfb
+}
+
+:global(.hljs-attr),
+:global(.hljs-attribute),
+:global(.hljs-literal),
+:global(.hljs-meta),
+:global(.hljs-number),
+:global(.hljs-operator),
+:global(.hljs-selector-attr),
+:global(.hljs-selector-class),
+:global(.hljs-selector-id),
+:global(.hljs-variable) {
+  color: #6cb6ff
+}
+
+:global(.hljs-meta .hljs-string),
+:global(.hljs-regexp),
+:global(.hljs-string) {
+  color: #96d0ff
+}
+
+:global(.hljs-built_in),
+:global(.hljs-symbol) {
+  color: #f69d50
+}
+
+:global(.hljs-code),
+:global(.hljs-comment),
+:global(.hljs-formula) {
+  color: #768390
+}
+
+:global(.hljs-name),
+:global(.hljs-quote),
+:global(.hljs-selector-pseudo),
+:global(.hljs-selector-tag) {
+  color: #8ddb8c
+}
+
+:global(.hljs-subst) {
+  color: #adbac7
+}
+
+:global(.hljs-section) {
+  color: #316dca;
+  font-weight: 700
+}
+
+:global(.hljs-bullet) {
+  color: #eac55f
+}
+
+:global(.hljs-emphasis) {
+  color: #adbac7;
+  font-style: italic
+}
+
+:global(.hljs-strong) {
+  color: #adbac7;
+  font-weight: 700
+}
+
+:global(.hljs-addition) {
+  color: #b4f1b4;
+  background-color: #1b4721
+}
+
+:global(.hljs-deletion) {
+  color: #ffd8d3;
+  background-color: #78191b
+}
+</style>
