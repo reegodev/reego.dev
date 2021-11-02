@@ -20,15 +20,24 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
 <div class="container mx-auto py-4 px-4">
   <div class="relative md:p-12">
     <article>
-      <h1 class="text-xl md:text-2xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
-      <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg mt-5">
-        <div>
-          <img class="inline-block h-5 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
-          <time class="align-middle">{ post.date }</time>
+      <h1 class="post-title text-3xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
+      <p class="hidden post-description">{ post.description }</p>
+      <div class="mt-5 flex justify-between items-baseline">
+        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg">
+          <div>
+            <img class="inline-block h-5 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
+            <time class="align-middle">{ post.date }</time>
+          </div>
+          <div>
+            <img class="inline-block h-5 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
+            <span class="align-middle">{ post.readingTime }</span>
+          </div>
         </div>
         <div>
-          <img class="inline-block h-5 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
-          <span class="align-middle">{ post.readingTime }</span>
+          <button type="button" class="share-btn hidden px-4 text-white">
+            <img class="inline-block h-5 w-auto mr-2" src="/share.svg" width="16" height="16" alt="Share icon" />
+            Share
+          </button>
         </div>
       </div>
       <div class="flex space-x-2 mt-5 items-center">
@@ -47,6 +56,25 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
       </div>
     </article>
   </div>
+  <script>
+      const post = {
+        title: document.querySelector('.post-title').textContent,
+        text: document.querySelector('.post-description').textContent,
+        url: window.location.href,
+      }
+      if (navigator.canShare && navigator.canShare(post)) {
+        const btn = document.querySelector('.share-btn')
+        if (btn) {
+          btn.classList.remove('hidden')
+          btn.classList.add('inline-block')
+          btn.addEventListener('click', function() {
+            navigator.share(post)
+              .then(() => console.log('Share was successful.'))
+              .catch((error) => console.log('Sharing failed', error));
+          })
+        }
+      }
+  </script>
 </div>
 
 <style>
