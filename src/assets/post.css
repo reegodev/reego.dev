@@ -38,9 +38,8 @@
 }
 
 .post-content blockquote {
-  @apply p-4 my-8 bg-gray-900 border border-black;
+  @apply p-4 my-8 border border-gray-600 bg-gray-800;
   border-left-color: theme('colors.primary');
-  background-color: #151515;
 }
 
 .post-content img {

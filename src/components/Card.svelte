@@ -1,4 +1,4 @@
-<article class="card border border-black h-full relative flex flex-col hover:border-primary">
+<article class="card border bg-gray-800 border-gray-600 h-full relative flex flex-col hover:border-primary">
   {#if $$slots.header}
     <div class="overflow-hidden">
       <slot name="header" />
@@ -15,7 +15,6 @@
 </article>
 <style>
 .card {
-  background-color: #151515;
   transition: border-color 0.25s ease-out;
 }
 </style>
