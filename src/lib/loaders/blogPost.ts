@@ -23,6 +23,7 @@ export const load = async ({ page }: LoadInput): Promise<LoadOutput> => {
   return {
     props: {
       post,
-    }
+    },
+    maxage: 60 * 60 * 24 * 365, // Cache indefinitely ( 1 year )
   }
 }
