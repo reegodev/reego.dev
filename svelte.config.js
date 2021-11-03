@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-cloudflare-workers'
+import adapter from './adapter/index.js'
 import preprocess from 'svelte-preprocess'
 
 /** @type {import('@sveltejs/kit').Config} */

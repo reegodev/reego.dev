@@ -37,8 +37,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@iarna/toml": "^2.2.5",
 		"@urql/core": "^2.3.4",
 		"dotenv": "^10.0.0",
+		"esbuild": "^0.13.12",
 		"graphql": "^16.0.0",
 		"gray-matter": "^4.0.3",
 		"highlight.js": "^11.3.1",
