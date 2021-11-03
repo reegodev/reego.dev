@@ -17,7 +17,7 @@ export let posts
   <div class="h-full flex flex-col justify-center w-full lg:w-2/3 px-0 md:px-4 lg:px-8 lg:pr-24 xl:pr-0 mt-12 lg:mt-0">
     <h1 class="text-5xl md:text-6xl font-bold">Hi, I'm <span class="inline-block text-primary font-bold">Matteo</span></h1>
     <div class="text-xl text-gray-300">
-      <p>I am a senior full stack developer based in Italy 🇮🇹</p>
+      <p>I am a full stack developer based in Italy 🇮🇹</p>
       <p>I'm an avid learner, I love technology, sports and animals.</p>
     </div>
     <div class="mt-12 w-full text-sm md:text-base">
