@@ -11,7 +11,7 @@ export let posts: Post[]
 </script>
 
 <svelte:head>
-	<Seo title="Blog" description="Index of my personal blog. I write about web technologies." image="/social_picture.jpg" />
+	<Seo title="Blog" description="Index of my personal blog. I write about web technologies." />
 </svelte:head>
 
 <div class="container mx-auto px-4 md:px-8">
