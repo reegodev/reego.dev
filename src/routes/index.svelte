@@ -10,7 +10,7 @@ export let posts
 </script>
 
 <svelte:head>
-	<Seo title="Matteo Rigon" description="Welcome to my personal website. I write about web technologies." />
+	<Seo title="Matteo Rigon" description="Welcome to my personal blog. I mostly write about web technologies." />
 </svelte:head>
 
 <div class="container mx-auto flex justify-between px-4 flex-wrap lg:flex-nowrap">

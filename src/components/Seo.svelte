@@ -15,7 +15,7 @@ const query = $page.query.toString()
 <meta property="og:title" content="{title} | reego.dev">
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{image || defaultImage}">
-<meta property="og:url" content="${origin}/{$page.path}{query ? '?' + query : ''}">
+<meta property="og:url" content="{origin}{$page.path}{query ? '?' + query : ''}">
 <meta property="og:type" content="website" />
 
 <meta name="twitter:card" content="summary_large_image">
