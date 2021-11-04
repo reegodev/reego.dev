@@ -2,7 +2,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
 
   const layers = [
 
-    'w_1204,h_634,c_fill,q_auto,f_auto',
+    'w_1360,h_770,c_fill,q_auto,f_auto',
 
     [
       ['w_1160'],
@@ -11,7 +11,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
       ['l_text', `Quicksand_80_bold:${encodeURIComponent(title)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_north_west,y_40,x_40',
+    'fl_layer_apply,g_north_west,y_110,x_120',
 
     [
       ['w_1160'],
@@ -20,7 +20,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
       ['l_text', `Quicksand_40:${encodeURIComponent(description)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_west,y_20,x_40',
+    'fl_layer_apply,g_west,y_20,x_120',
 
     [
       ['w_1160'],
@@ -29,7 +29,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
       ['l_text', `Quicksand_40:${encodeURIComponent(date).replace(/%2F/g, '%252F')}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_south_west,y_40,x_110',
+    'fl_layer_apply,g_south_west,y_110,x_190',
 
     [
       ['w_1160'],
@@ -38,7 +38,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
       ['l_text', `Quicksand_40:${encodeURIComponent(readingTime)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_south_east,y_46,x_40',
+    'fl_layer_apply,g_south_east,y_115,x_120',
 
   ].join('/')
 
