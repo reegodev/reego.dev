@@ -1,0 +1,20 @@
+name: Discussion updated
+
+on:
+  discussion:
+    types: [created, edited, deleted, pinned, unpinned, labeled, unlabeled]
+
+jobs:
+  discussion-updated:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cloudflare Purge Cache
+        uses: jakejarvis/cloudflare-purge-action@v0.3.0
+        env:
+          CLOUDFLARE_ZONE: "ef45b1613c0cfae953f710bcf4fc1363"
+          CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}

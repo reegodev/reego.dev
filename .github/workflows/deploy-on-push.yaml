@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  lint:
+  deploy-on-push:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -45,3 +45,9 @@ jobs:
         uses: cloudflare/wrangler-action@1.3.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+
+      - name: Cloudflare Purge Cache
+        uses: jakejarvis/cloudflare-purge-action@v0.3.0
+        env:
+          CLOUDFLARE_ZONE: "ef45b1613c0cfae953f710bcf4fc1363"
+          CLOUDFLARE_TOKEN: ${{ secrets.CF_API_TOKEN }}

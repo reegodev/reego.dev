@@ -19,5 +19,6 @@ export interface Post {
   date: string
   readingTime: string
   githubUrl: string
+  number: number
   tags: Tag[]
 }

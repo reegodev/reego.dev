@@ -11,6 +11,7 @@ export default gql`
             createdAt
             updatedAt
             url
+            number
 
             labels(first: 10) {
               edges {

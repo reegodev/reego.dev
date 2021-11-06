@@ -50,11 +50,26 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
       </div>
       <div class="mt-12 text-lg">
         I hope this post was an interesting read!<br>
-        If you have questions or want to give feedbacks, I encourage you to write a comment on the <a class="underline" href="{post.githubUrl}" target="_blank" rel="noopener noreferrer nofollow">GitHub discussion of this post</a> ( I'm still working on directly integrating comments on the page, please bear with me )<br>
+        If you have questions or want to give feedbacks, Feel free to leave a comment below or directly on the <a class="underline" href="{post.githubUrl}" target="_blank" rel="noopener noreferrer nofollow">GitHub discussion of this post</a><br>
         <br>
         Cheers!
       </div>
     </article>
+
+    <aside class="mt-12">
+      <script src="https://giscus.app/client.js"
+        data-repo="reegodev/reego.dev"
+        data-repo-id="R_kgDOGTk7pw"
+        data-mapping="number"
+        data-term="{ post.number }"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </aside>
   </div>
   <script>
       const shareData = {
@@ -76,7 +91,6 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
       }
   </script>
 </div>
-
 <style>
 @screen xl {
   .container {

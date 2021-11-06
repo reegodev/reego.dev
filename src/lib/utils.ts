@@ -153,5 +153,6 @@ export async function mapPost({ node }: { node: any }): Promise<Post> {
       }
     }),
     githubUrl: node.url,
+    number: node.number,
   }
 }
