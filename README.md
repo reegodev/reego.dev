@@ -1,12 +1,13 @@
 # reego.dev
-This is the repository for my personal website [reego.dev](https://reego.dev)
+This is the repository for my personal blog [reego.dev](https://reego.dev)
 
-## The stack
+## Stack
 
 - GitHub discussions as the blog engine. [What?](https://reego.dev/blog/using-github-discussions-as-your-blog-engine)
 - Svelte + SvelteKit
 - Cloudflare Workers
 - Cloudinary to generate dynamic social images for posts
+- Giscus to embed GitHub comments into articles
 
 ## License
 
