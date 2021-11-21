@@ -20,7 +20,7 @@ export const getImageUrl = (title: string, description: string, date: string, re
       ['l_text', `Quicksand_40:${encodeURIComponent(description)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_west,y_20,x_120',
+    'fl_layer_apply,g_west,y_50,x_120',
 
     [
       ['w_1160'],
