@@ -102,6 +102,11 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
   @apply font-bold text-xl md:text-2xl mt-20 mb-4;
 }
 
+.post-content :global(h3),
+.post-content :global(h4) {
+  @apply font-bold text-lg md:text-lg mt-10 mb-2;
+}
+
 .post-content :global(pre) {
   @apply my-4 md:my-8;
 }
