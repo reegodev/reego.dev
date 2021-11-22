@@ -115,14 +115,17 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
   @apply mb-4;
 }
 
-.post-content :global(p code) {
+.post-content :global(code) {
   @apply font-mono inline-block align-middle text-primary px-2 py-1 leading-none text-xs md:text-xs mx-1;
   background: hsl(220, 13%, 18%);
 }
 
-.post-content :global(a) {
+.post-content :global(a),
+a {
   word-break: break-all;
   text-decoration: underline;
+  text-decoration-color: theme('colors.primary');
+  text-underline-offset: 2px;
 }
 
 @screen md {
@@ -147,15 +150,31 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
 }
 
 :global(.post-content ul) {
-  padding-left: 1em;
+  padding-left: 2em;
   margin: 1em 0 2em;
-  @apply space-y-2 list-disc;
+  @apply list-disc;
 }
 
 :global(.post-content ol) {
-  padding-left: 1em;
+  padding-left: 2em;
   margin: 1em 0 2em;
-  @apply space-y-2 list-decimal;
+  @apply list-decimal;
+}
+
+:global(.post-content ul > li) {
+  @apply my-2;
+}
+
+:global(.post-content ol > li) {
+  @apply my-2;
+}
+
+:global(.post-content ol > li::marker) {
+  @apply font-bold text-primary;
+}
+
+:global(.post-content ul > li::marker) {
+  @apply font-bold text-primary;
 }
 
 :global(pre code.hljs) {
