@@ -16,7 +16,7 @@ async function handle(event) {
 			// use the asset manifest to see if it exists
 			return await getAssetFromKV(event, {
 				cacheControl: {
-					browserTTL: 365 * 60 * 60 * 24, // 1 year
+					browserTTL: 60 * 60 * 24, // 1 year
 					edgeTTL: 365 * 60 * 60 * 24, // 1 year
 					bypassCache: false, // do not bypass Cloudflare's cache
 				}
