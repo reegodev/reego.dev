@@ -133,6 +133,11 @@ a {
   text-underline-offset: 2px;
 }
 
+.post-content :global(iframe) {
+  @apply my-8 w-full;
+  aspect-ratio: 16 / 9;
+} 
+
 @screen md {
   .post-content :global(a) {
     word-break: initial;
