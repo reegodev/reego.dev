@@ -135,8 +135,14 @@ a {
 
 .post-content :global(iframe) {
   @apply my-8 w-full;
-  aspect-ratio: 16 / 9;
-} 
+  aspect-ratio: 9 / 16;
+}
+
+@screen md {
+  .post-content :global(iframe) {
+    aspect-ratio: 16 / 9;
+  }
+}
 
 @screen md {
   .post-content :global(a) {
