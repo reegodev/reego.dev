@@ -15,10 +15,11 @@ export let posts
 
 <div class="container mx-auto flex justify-between px-4 flex-wrap lg:flex-nowrap">
   <div class="h-full flex flex-col justify-center w-full lg:w-2/3 px-0 md:px-4 lg:px-8 lg:pr-24 xl:pr-0 mt-12 lg:mt-0">
-    <h1 class="text-5xl md:text-6xl font-bold">Hi, I'm <span class="inline-block text-primary font-bold">Matteo</span></h1>
+    <h1 class="text-5xl md:text-6xl font-bold">Hi, I'm <span class="inline-block text-primary font-bold">Rigo</span></h1>
     <div class="text-xl text-gray-300">
-      <p>I'm a full stack developer based in Italy 🇮🇹</p>
-      <p>I'm an avid learner, I love technology, sports and animals.</p>
+      <p>I'm a software engineer based in Italy 🇮🇹</p>
+      <p class="inline lg:block">Avid learner, all-around web enthusiast, always</p>
+      <p class="inline lg:block">experimenting with new technologies and trends.</p>
     </div>
     <div class="mt-12 w-full text-sm md:text-base">
       <ul class="flex flex-col items-start flex-wrap space-y-6 md:mt-0">
