@@ -1,10 +1,10 @@
-<article class="card border bg-gray-800 border-gray-600 h-full relative flex flex-col hover:border-primary">
+<article class="card rounded-lg border bg-gray-800 border-gray-600 h-full relative flex flex-col hover:border-primary">
   {#if $$slots.header}
     <div class="overflow-hidden">
       <slot name="header" />
     </div>
   {/if}
-  <div class="p-4 rounded-lg filter drop-shadow-xl flex-grow">
+  <div class="p-4 filter drop-shadow-xl flex-grow flex flex-col justify-between">
     <slot />
   </div>
   {#if $$slots.footer}

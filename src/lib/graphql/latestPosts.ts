@@ -6,7 +6,7 @@ export default gql`
       discussions(
         first: $limit,
         orderBy: {
-          field: UPDATED_AT,
+          field: CREATED_AT,
           direction: DESC
         }
       ) {
