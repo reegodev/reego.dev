@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
-  purge: [ 
+  purge: [
     "./src/**/*.svelte",
     "./src/**/*.html"
   ],
@@ -18,6 +18,12 @@ module.exports = {
       fontFamily: {
         sans: ['Quicksand'],
       },
+      dropShadow: {
+        'primary': [
+            '0 2px 10px rgba(63, 63, 70, 0.33)',
+            '0 2px 10px rgba(63, 63, 70, 0.38)'
+        ],
+      }
     }
   },
   variants: {

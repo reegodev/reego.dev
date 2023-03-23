@@ -14,13 +14,16 @@ export let posts: Post[]
     {/each}
   </div>
   <div class="mt-8 text-center">
-    <a href="/blog" class="inline-block rounded-lg px-8 py-2 font-bold bg-primary text-black">
+    <a href="/blog" class="btn inline-block rounded-lg px-8 py-2 border border-primary text-primary hover:scale-105">
       View all<span class="inline-block ml-2 font-bold">→</span>
     </a>
   </div>
 </div>
 
 <style>
+  .btn {
+    transition: transform 0.25s ease-out;
+  }
   @screen 2xl {
     .latest-posts {
       max-width: 600px;

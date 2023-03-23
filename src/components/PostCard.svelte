@@ -15,7 +15,7 @@ const url = '/blog/' + post.slug
         <time class="align-middle">{ post.date }</time>
         <span class="align-middle">{ post.readingTime }</span>
       </div>
-      <h1 class="text-xl md:text-2xl font-semibold">{ post.title }</h1>
+      <h1 class="text-lg md:text-xl font-semibold">{ post.title }</h1>
       <p class="text-md leading-tight mt-8 text-gray-300">{ post.description }</p>
     </div>
   </Card>

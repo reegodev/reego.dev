@@ -21,7 +21,7 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
   <div class="relative md:p-12">
     <article>
       <div class="mb-5 flex justify-between items-baseline text-gray-400">
-        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg">
+        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-md">
           <div>
             <time class="align-middle">{ post.date }</time>
           </div>
@@ -38,7 +38,7 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
       </div>
       <h1 class="post-title text-3xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
       <p class="hidden post-description">{ post.description }</p>
-      <div class="post-content mt-12 text-xl">
+      <div class="post-content mt-12 text-lg">
         {@html post.content}
       </div>
       <div class="mt-12 text-lg">
