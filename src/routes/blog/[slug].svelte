@@ -30,7 +30,7 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
           </div>
         </div>
         <div>
-          <button type="button" class="share-btn px-4">
+          <button type="button" class="share-btn hidden px-4">
             <img class="inline-block h-3 w-auto mr-2" src="/share.svg" width="12" height="12" alt="Share icon" />
             Share
           </button>
