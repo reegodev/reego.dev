@@ -20,8 +20,8 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
 <div class="container mx-auto py-4 px-4">
   <div class="relative md:p-12">
     <article>
-      <div class="mb-5 flex justify-between items-baseline">
-        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg text-gray-400">
+      <div class="mb-5 flex justify-between items-baseline text-gray-400">
+        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg">
           <div>
             <time class="align-middle">{ post.date }</time>
           </div>
@@ -30,8 +30,8 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
           </div>
         </div>
         <div>
-          <button type="button" class="share-btn hidden px-4 text-white">
-            <img class="inline-block h-5 w-auto mr-2" src="/share.svg" width="16" height="16" alt="Share icon" />
+          <button type="button" class="share-btn px-4">
+            <img class="inline-block h-3 w-auto mr-2" src="/share.svg" width="12" height="12" alt="Share icon" />
             Share
           </button>
         </div>

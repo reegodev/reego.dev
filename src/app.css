@@ -5,7 +5,7 @@
 
 body {
   background-image: radial-gradient(at left center, rgb(36, 36, 36), rgb(0, 0, 0));
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
 
 ::selection {
