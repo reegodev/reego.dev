@@ -10,26 +10,13 @@ const url = '/blog/' + post.slug
 
 <a href="{ url }" class="block h-full">
   <Card>
-    <div class="flex flex-col justify-between">
-      <h1 class="text-md md:text-xl font-semibold">{ post.title }</h1>
-      <p class="text-md leading-tight mt-4 text-gray-300">{ post.description }</p>
-      <div class="flex space-x-2 mt-4 items-center">
-      {#each post.tags as tag}
-        <Tag v-for="tag of post.tags" tag="{ tag }" />
-      {/each}
+    <div class="flex flex-col justify-between" slot="default">
+      <div class="flex justify-between text-sm mb-8 text-gray-400">
+        <time class="align-middle">{ post.date }</time>
+        <span class="align-middle">{ post.readingTime }</span>
       </div>
+      <h1 class="text-md md:text-2xl font-semibold">{ post.title }</h1>
+      <p class="text-md leading-tight mt-8 text-gray-300">{ post.description }</p>
     </div>
-    <template #footer>
-      <div class="flex justify-between text-sm pt-4">
-        <div>
-          <img alt="Calendar icon" width="16" height="16" class="inline-block h-5 w-auto mr-2" src="/calendar.svg"/>
-          <time class="align-middle">{ post.date }</time>
-        </div>
-        <div>
-          <img alt="Stopwatch icon" width="16" height="16" class="inline-block h-5 w-auto mr-2"  src="/clock.svg"/>
-          <span class="align-middle">{ post.readingTime }</span>
-        </div>
-      </div>
-    </template>
   </Card>
 </a>

@@ -20,16 +20,12 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
 <div class="container mx-auto py-4 px-4">
   <div class="relative md:p-12">
     <article>
-      <h1 class="post-title text-3xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
-      <p class="hidden post-description">{ post.description }</p>
-      <div class="mt-5 flex justify-between items-baseline">
-        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg">
+      <div class="mb-5 flex justify-between items-baseline">
+        <div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg text-gray-400">
           <div>
-            <img class="inline-block h-5 w-auto mr-2" src="/calendar.svg" width="16" height="16" alt="Calendar icon" />
             <time class="align-middle">{ post.date }</time>
           </div>
           <div>
-            <img class="inline-block h-5 w-auto mr-2"  src="/clock.svg" width="16" height="16" alt="Stopwatch icon" />
             <span class="align-middle">{ post.readingTime }</span>
           </div>
         </div>
@@ -40,12 +36,9 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
           </button>
         </div>
       </div>
-      <div class="flex space-x-2 mt-5 items-center">
-      {#each post.tags as tag}
-        <Tag v-for="tag of post.tags" tag="{ tag }" />
-      {/each}
-      </div>
-      <div class="post-content mt-12 text-lg">
+      <h1 class="post-title text-3xl lg:text-5xl lg:pl-0 font-bold">{ post.title }</h1>
+      <p class="hidden post-description">{ post.description }</p>
+      <div class="post-content mt-12 text-xl">
         {@html post.content}
       </div>
       <div class="mt-12 text-lg">
@@ -129,7 +122,7 @@ const imageUrl = getImageUrl(post.title, post.description, post.date, post.readi
 a {
   word-break: break-all;
   text-decoration: underline;
-  text-decoration-color: theme('colors.primary');
+  text-decoration-color: theme('colors.white');
   text-underline-offset: 2px;
 }
 
@@ -151,7 +144,7 @@ a {
 }
 
 :global(.post-content blockquote) {
-  @apply p-4 my-8 pl-14 border border-gray-600 bg-gray-800 relative;
+  @apply p-4 my-8 pl-14 border border-gray-700 bg-gray-900 relative;
 }
 
 :global(.post-content blockquote:before) {

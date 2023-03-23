@@ -14,8 +14,8 @@ export let posts: Post[]
     {/each}
   </div>
   <div class="mt-8 text-center">
-    <a href="/blog" class="inline-block px-16 py-2 font-bold text-white uppercase">
-      <span class="inline-block mr-2 text-primary font-bold">+</span>View all
+    <a href="/blog" class="inline-block rounded-lg px-8 py-2 font-bold bg-primary text-black">
+      View all<span class="inline-block ml-2 font-bold">→</span>
     </a>
   </div>
 </div>
