@@ -1,0 +1,22 @@
+---
+import type { Post } from '../types'
+import Card from './Card.astro'
+import FormattedDate from './FormattedDate.astro'
+
+export type Props = { post: Post }
+const { post } = Astro.props;
+const url = '/blog/' + post.slug
+---
+  
+<a href={ url } class="block h-full">
+  <Card>
+    <div class="flex flex-col justify-between" slot="default">
+      <div class="flex justify-between text-sm mb-8 text-zinc-400">
+        <FormattedDate class="align-middle" date={post.date} />
+        <span class="align-middle">{ post.readingTime }</span>
+      </div>
+      <h1 class="text-lg md:text-xl font-semibold">{ post.title }</h1>
+      <p class="text-md leading-tight mt-8 text-zinc-300">{ post.description }</p>
+    </div>
+  </Card>
+</a>

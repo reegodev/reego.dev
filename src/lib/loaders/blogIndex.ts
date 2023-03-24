@@ -1,22 +1,27 @@
-import client from '$lib/client'
-import type { LoadOutput } from '@sveltejs/kit'
-import { mapPost } from '$lib/utils'
-import LATEST_POSTS from '$lib/graphql/latestPosts'
+import client from '../client'
+import { mapPost } from '../utils'
+import LATEST_POSTS from '../../graphql/latestPosts'
+import type { PostList } from '../../types'
 
-export const load = async (): Promise<LoadOutput> => {
+export const load = async (limit = 12, after?: string): Promise<PostList> => {
   const { data } = await client.query(
     LATEST_POSTS,
     {
-      owner: import.meta.env.VITE_GITHUB_REPO_OWNER,
-      repo: import.meta.env.VITE_GITHUB_REPO_NAME,
-      limit: 12,
+      owner: import.meta.env.GITHUB_REPO_OWNER,
+      repo: import.meta.env.GITHUB_REPO_NAME,
+      limit,
+      after: after || null,
     },
   ).toPromise()
 
   if (!data) {
     return {
-      status: 404,
-      error: 'Not found',
+      posts: [],
+      pageInfo: {
+        startCursor: '',
+        endCursor: '',
+        hasNextPage: false,
+      }
     }
   }
 
@@ -25,9 +30,7 @@ export const load = async (): Promise<LoadOutput> => {
   )
 
   return {
-    props: {
-      posts,
-    },
-    maxage: 60 * 60 * 24 * 365, // Cache indefinitely ( 1 year )
+    posts,
+    pageInfo: data.repository.discussions.pageInfo,
   }
 }

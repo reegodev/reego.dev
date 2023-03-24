@@ -1,0 +1,9 @@
+body {
+  background-image: radial-gradient(at left center, rgb(36, 36, 36), rgb(0, 0, 0));
+	color: theme('colors.white');
+}
+
+::selection {
+  color: theme('colors.white');
+  background: theme('colors.primary');
+}
