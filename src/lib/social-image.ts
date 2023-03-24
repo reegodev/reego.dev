@@ -1,6 +1,10 @@
-import { formatDate } from "./utils"
-
 export const getImageUrl = (title: string, description: string, date: Date, readingTime: string): string => {
+
+  const formattedDate = date.toLocaleDateString('en-us', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	}).replace(',', '')
 
   const layers = [
 
@@ -13,7 +17,7 @@ export const getImageUrl = (title: string, description: string, date: Date, read
       ['l_text', `Quicksand_80_bold:${encodeURIComponent(title)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_north_west,y_110,x_120',
+    'fl_layer_apply,g_north_west,y_210,x_120',
 
     [
       ['w_1160'],
@@ -22,16 +26,16 @@ export const getImageUrl = (title: string, description: string, date: Date, read
       ['l_text', `Quicksand_40:${encodeURIComponent(description)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_west,y_50,x_120',
+    'fl_layer_apply,g_south_west,y_110,x_120',
 
     [
       ['w_1160'],
       ['c_fit'],
       ['co_rgb', '95959e'],
-      ['l_text', `Quicksand_40:${encodeURIComponent(formatDate(date).replace(',', '')).replace(/%2F/g, '%252F')}`],
+      ['l_text', `Quicksand_40:${encodeURIComponent(formattedDate).replace(/%2F/g, '%252F')}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_south_west,y_110,x_120',
+    'fl_layer_apply,g_north_west,y_110,x_120',
 
     [
       ['w_1160'],
@@ -40,7 +44,7 @@ export const getImageUrl = (title: string, description: string, date: Date, read
       ['l_text', `Quicksand_40:${encodeURIComponent(readingTime)}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_south_east,y_115,x_120',
+    'fl_layer_apply,g_north_east,y_110,x_120',
 
   ].join('/')
 
