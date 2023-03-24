@@ -1,17 +1,16 @@
 ---
+import { formatDate } from '../lib/utils';
+
 export interface Props {
 	date: Date;
+	class?: string
 }
 
-const { date } = Astro.props;
+const { date, class: klass } = Astro.props;
 ---
 
-<time datetime={date.toISOString()}>
+<time datetime={date.toISOString()} class={klass}>
 	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
+		formatDate(date)
 	}
 </time>

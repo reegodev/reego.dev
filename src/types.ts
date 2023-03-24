@@ -4,7 +4,7 @@ export interface Post {
   title: string
   description: string
   content: string
-  date: string
+  date: Date
   readingTime: string
   githubUrl: string
   number: number

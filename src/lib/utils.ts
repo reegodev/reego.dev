@@ -2,6 +2,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
+import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
 import matter from 'gray-matter';
 import { readingTime } from 'reading-time-estimator';
@@ -13,8 +14,11 @@ export async function mapPost({ node }: { node: any }): Promise<Post> {
 
 	const content = (await unified()
 		.use(remarkParse)
-		.use(remarkRehype)
-		.use(rehypeStringify)
+		.use(remarkRehype, {
+			allowDangerousHtml: true,
+		})
+		.use(rehypeRaw)
+		.use(rehypeStringify, )
 		.use(rehypeHighlight, {
 			ignoreMissing: true,
       languages: {
@@ -24,9 +28,6 @@ export async function mapPost({ node }: { node: any }): Promise<Post> {
 		.process(markdownContent)).toString();
 
 	const date = new Date(node.createdAt);
-	const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1)
-		.toString()
-		.padStart(2, '0')}/${date.getFullYear()}`;
 
 	return {
 		id: node.id,
@@ -34,9 +35,17 @@ export async function mapPost({ node }: { node: any }): Promise<Post> {
 		title: node && node.title,
 		description: frontmatter && frontmatter.description,
 		content,
-		date: formattedDate,
+		date,
 		readingTime: readingTime(content, 250).text,
 		githubUrl: node.url,
 		number: node.number
 	};
+}
+
+export function formatDate(date: Date) {
+	return date.toLocaleDateString('en-us', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+	})
 }

@@ -1,26 +1,17 @@
 ---
 import Layout from '../../layouts/Default.astro';
+import FormattedDate from '../../components/FormattedDate.astro'
 import { load } from '../../lib/loaders/blogPost';
-import { load as loadIndex } from '../../lib/loaders/blogIndex';
 import { getImageUrl } from '../../lib/social-image';
-import type { Post } from '../../types';
+import getAllPosts from '../../lib/loaders/getAllPosts';
 
 export async function getStaticPaths() {
-	const getPosts = async (limit: number, after?: string): Promise<Post[]> => {
-		const { posts, pageInfo } = await loadIndex(limit, after);
-		if (pageInfo.hasNextPage) {
-			return posts.concat(await getPosts(limit, pageInfo.endCursor))
-		}
-
-		return posts;
-	}
-
-	const posts = await getPosts(100);
-  return posts.map(post => ({
+	const posts = await getAllPosts()
+	return posts.map(post => ({
 		params: {
 			slug: post.slug
 		}
-	}));
+	}))
 }
 
 const post = await load({ slug: Astro.params.slug || '' });
@@ -39,7 +30,7 @@ const image = getImageUrl(post.title, post.description, post.date, post.readingT
 				<div class="mb-5 flex justify-between items-baseline text-zinc-400">
 					<div class="flex justify-between md:justify-start space-x-8 text-sm md:text-lg">
 						<div>
-							<time class="align-middle">{post.date}</time>
+							<FormattedDate class="align-middle" date={post.date} />
 						</div>
 						<div>
 							<span class="align-middle">{post.readingTime}</span>
