@@ -1,7 +1,27 @@
 ---
 import Layout from '../../layouts/Default.astro';
 import { load } from '../../lib/loaders/blogPost';
+import { load as loadIndex } from '../../lib/loaders/blogIndex';
 import { getImageUrl } from '../../lib/social-image';
+import type { Post } from '../../types';
+
+export async function getStaticPaths() {
+	const getPosts = async (limit: number, after?: string): Promise<Post[]> => {
+		const { posts, pageInfo } = await loadIndex(limit, after);
+		if (pageInfo.hasNextPage) {
+			return posts.concat(await getPosts(limit, pageInfo.endCursor))
+		}
+
+		return posts;
+	}
+
+	const posts = await getPosts(100);
+  return posts.map(post => ({
+		params: {
+			slug: post.slug
+		}
+	}));
+}
 
 const post = await load({ slug: Astro.params.slug || '' });
 

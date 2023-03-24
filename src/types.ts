@@ -9,3 +9,14 @@ export interface Post {
   githubUrl: string
   number: number
 }
+
+export interface PostList {
+  posts: Post[]
+  pageInfo: PageInfo
+}
+
+export interface PageInfo {
+  startCursor: string
+  hasNextPage: boolean
+  endCursor: string
+}
