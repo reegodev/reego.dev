@@ -27,16 +27,16 @@ export const getImageUrl = (title: string, description: string, date: Date, read
     [
       ['w_1160'],
       ['c_fit'],
-      ['co_rgb', 'ffffff'],
+      ['co_rgb', '95959e'],
       ['l_text', `Quicksand_40:${encodeURIComponent(formatDate(date).replace(',', '')).replace(/%2F/g, '%252F')}`],
     ].map(segment => segment.join(':')).join(','),
 
-    'fl_layer_apply,g_south_west,y_110,x_190',
+    'fl_layer_apply,g_south_west,y_110,x_120',
 
     [
       ['w_1160'],
       ['c_fit'],
-      ['co_rgb', 'ffffff'],
+      ['co_rgb', '95959e'],
       ['l_text', `Quicksand_40:${encodeURIComponent(readingTime)}`],
     ].map(segment => segment.join(':')).join(','),
 
@@ -45,5 +45,5 @@ export const getImageUrl = (title: string, description: string, date: Date, read
   ].join('/')
 
 
-  return `https://res.cloudinary.com/reegodev/image/upload/${layers}/social_base_post.jpg`
+  return `https://res.cloudinary.com/reegodev/image/upload/${layers}/social_base_post_szfzhu.jpg`
 }
