@@ -126,7 +126,7 @@ const image = getImageUrl(post.title, post.description, post.date, post.readingT
 		}
 
 		.post-content :global(pre code) {
-			@apply font-mono bg-zinc-900 border border-zinc-700 rounded-lg block p-4 text-white leading-relaxed text-base overflow-x-auto;
+			@apply font-mono bg-zinc-900 border border-zinc-700 rounded-lg block p-8 text-white leading-relaxed text-base overflow-x-auto;
 		}
 
 		.post-content :global(p:not(:last-child)) {
@@ -147,7 +147,7 @@ const image = getImageUrl(post.title, post.description, post.date, post.readingT
 		}
 
 		.post-content :global(iframe) {
-			@apply my-8 w-full;
+			@apply my-8 w-full bg-zinc-900 border border-zinc-700 p-8 rounded-lg;
 			aspect-ratio: 9 / 16;
 		}
 
@@ -164,7 +164,7 @@ const image = getImageUrl(post.title, post.description, post.date, post.readingT
 		}
 
 		:global(.post-content blockquote) {
-			@apply p-4 my-8 pl-14 border border-zinc-700 bg-zinc-900 rounded-lg relative;
+			@apply p-8 my-8 pl-16 border border-zinc-700 bg-zinc-900 rounded-lg relative;
 		}
 
 		:global(.post-content blockquote:before) {
