@@ -1,0 +1,37 @@
+---
+import { load } from '../lib/loaders/latestPosts';
+import PostCard from './PostCard.astro';
+const posts = await load();
+---
+
+<div class="latest-posts w-full px-0 md:px-4 lg:px-8 py-8 container mx-auto">
+	<h2 class="text-md tracking-wide uppercase">Latest articles</h2>
+	<div class="mt-8 mx-auto space-y-8">
+		{
+			posts.map((post) => (
+				<div class="w-full">
+					<PostCard post={post} />
+				</div>
+			))
+		}
+	</div>
+	<div class="mt-8 text-center">
+		<a
+			href="/blog"
+			class="btn inline-block rounded-lg px-8 py-2 border border-primary text-primary hover:scale-105"
+		>
+			View all<span class="inline-block ml-2 font-bold">→</span>
+		</a>
+	</div>
+</div>
+
+<style>
+	.btn {
+		transition: transform 0.25s ease-out;
+	}
+	@screen 2xl {
+		.latest-posts {
+			max-width: 600px;
+		}
+	}
+</style>

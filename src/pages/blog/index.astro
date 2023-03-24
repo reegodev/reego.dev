@@ -1,0 +1,14 @@
+---
+import PostGrid from '../../components/PostGrid.astro'
+import Layout from '../../layouts/Default.astro';
+import { load } from '../../lib/loaders/blogIndex';
+
+const posts = await load();
+---
+
+<Layout title="Blog" description="Index of my personal blog. I mostly write about web technologies.">
+	<div class="container mx-auto px-4 md:px-8">
+		<h1 class="text-white text-5xl font-bold mt-12">Blog</h1>
+		<PostGrid posts={posts} />
+	</div>
+</Layout>

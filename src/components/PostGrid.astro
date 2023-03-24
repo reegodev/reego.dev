@@ -1,0 +1,18 @@
+---
+import type { Post } from '../types';
+import PostCard from './PostCard.astro';
+export type Props = { posts: Post[] };
+const { posts } = Astro.props;
+---
+
+<div class="my-12">
+	<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+		{
+			posts.map((post) => (
+				<div v-for="post of posts">
+					<PostCard post={post} />
+				</div>
+			))
+		}
+	</div>
+</div>

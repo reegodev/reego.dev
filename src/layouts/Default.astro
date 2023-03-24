@@ -1,0 +1,24 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export type Props = { title: string; description: string; image?: string };
+const { title, description, image } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} image={image} />
+	</head>
+
+	<body class="font-sans text-white">
+		<div class="flex flex-col justify-between min-h-screen">
+			<Header />
+			<main class="lg:flex lg:flex-grow lg:items-stretch">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

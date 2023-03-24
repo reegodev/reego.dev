@@ -1,11 +1,6 @@
-/* Write your global styles here, in PostCSS syntax */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   background-image: radial-gradient(at left center, rgb(36, 36, 36), rgb(0, 0, 0));
-  /* background-attachment: fixed; */
+	color: theme('colors.white');
 }
 
 ::selection {

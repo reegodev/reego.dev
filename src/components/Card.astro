@@ -1,0 +1,26 @@
+<article
+	class="card rounded-lg border bg-zinc-900 border-zinc-700 h-full relative flex flex-col hover:drop-shadow-primary"
+>
+	{
+		Astro.slots.has('header') && (
+			<div class="overflow-hidden">
+				<slot name="header" />
+			</div>
+		)
+	}
+	<div class="p-8 flex-grow flex flex-col justify-between">
+		<slot />
+	</div>
+	{
+		Astro.slots.has('footer') && (
+			<div v-if="$slots.footer" class="overflow-hidden">
+				<slot name="footer" />
+			</div>
+		)
+	}
+</article>
+<style>
+	.card {
+		transition: filter 0.25s ease-out;
+	}
+</style>
