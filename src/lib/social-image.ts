@@ -28,7 +28,7 @@ export const getImageUrl = (title: string, description: string, date: Date, read
       ['w_1160'],
       ['c_fit'],
       ['co_rgb', 'ffffff'],
-      ['l_text', `Quicksand_40:${encodeURIComponent(formatDate(date)).replace(/%2F/g, '%252F')}`],
+      ['l_text', `Quicksand_40:${encodeURIComponent(formatDate(date).replace(',', '')).replace(/%2F/g, '%252F')}`],
     ].map(segment => segment.join(':')).join(','),
 
     'fl_layer_apply,g_south_west,y_110,x_190',
